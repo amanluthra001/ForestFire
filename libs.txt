@@ -1,0 +1,17 @@
+pandas
+numpy
+joblib
+scikit-learn
+matplotlib
+geopandas
+shapely
+pyproj
+folium
+streamlit
+streamlit-autorefresh
+python-dotenv
+plyer
+requests
+deap
+xgboost
+catboost

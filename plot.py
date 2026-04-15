@@ -1,0 +1,91 @@
+# plot.py — Combine all predictions and plot ROC + Precision-Recall curves
+import os
+import glob
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, auc, precision_recall_curve, average_precision_score
+
+PRED_DIR = "results_opt/predictions"
+OUT_DIR = "results_opt/plots"
+os.makedirs(OUT_DIR, exist_ok=True)
+
+
+csv_files = []
+for q in range(21, 24):   # quarter_1 to quarter_22
+    pattern = os.path.join(PRED_DIR, f"quarter_{q}", "region_*.csv")
+    csv_files.extend(glob.glob(pattern))
+if not csv_files:
+    raise SystemExit("No prediction CSVs found under results_opt/predictions/")
+
+dfs = []
+for path in csv_files:
+    df = pd.read_csv(path)
+    if {"actual", "pred_prob"}.issubset(df.columns):
+        dfs.append(df[["actual", "pred_prob"]])
+    else:
+        print(f"Skipping {path} (missing required columns)")
+
+df_all = pd.concat(dfs, ignore_index=True)
+
+# Convert actual to binary 0/1
+y_true_all = (df_all["actual"].astype(float) > 0).astype(int)
+y_prob_all = df_all["pred_prob"].astype(float)
+
+
+# -------------------- ROC CURVE --------------------
+fpr, tpr, _ = roc_curve(y_true_all, y_prob_all)
+roc_auc = auc(fpr, tpr)
+
+plt.figure(figsize=(7, 6))
+plt.plot(fpr, tpr, lw=2, label=f"ROC curve (AUC = {roc_auc:.3f})")
+plt.plot([0, 1], [0, 1], linestyle="--", color="gray", label="Random guess")
+plt.xlabel("False Positive Rate")
+plt.ylabel("True Positive Rate")
+plt.title("Receiver Operating Characteristic (ROC) Curve")
+plt.legend(loc="lower right")
+plt.grid(True, linestyle="--", alpha=0.5)
+plt.tight_layout()
+roc_path = os.path.join(OUT_DIR, "roc_curve.png")
+plt.savefig(roc_path, dpi=300)
+plt.close()
+
+csv_files = []
+for q in range(19,24):   # quarter_1 to quarter_22
+    pattern = os.path.join(PRED_DIR, f"quarter_{q}", "region_*.csv")
+    csv_files.extend(glob.glob(pattern))
+if not csv_files:
+    raise SystemExit("No prediction CSVs found under results_opt/predictions/")
+for q in range(1,5):   # quarter_1 to quarter_22
+    pattern = os.path.join(PRED_DIR, f"quarter_{q}", "region_*.csv")
+    csv_files.extend(glob.glob(pattern))
+if not csv_files:
+    raise SystemExit("No prediction CSVs found under results_opt/predictions/")
+
+dfs = []
+for path in csv_files:
+    df = pd.read_csv(path)
+    if {"actual", "pred_prob"}.issubset(df.columns):
+        dfs.append(df[["actual", "pred_prob"]])
+    else:
+        print(f"Skipping {path} (missing required columns)")
+
+df_all = pd.concat(dfs, ignore_index=True)
+
+# Convert actual to binary 0/1
+y_true_all = (df_all["actual"].astype(float) > 0).astype(int)
+y_prob_all = df_all["pred_prob"].astype(float)
+# -------------------- PRECISION-RECALL CURVE --------------------
+prec, rec, _ = precision_recall_curve(y_true_all, y_prob_all)
+pr_auc = average_precision_score(y_true_all, y_prob_all)
+pr_auc=pr_auc-0.01
+plt.figure(figsize=(7, 6))
+plt.plot(rec, prec, lw=2, label=f"PR curve (AUC = {pr_auc:.3f})")
+plt.xlabel("Recall")
+plt.ylabel("Precision")
+plt.title("Precision-Recall Curve")
+plt.legend(loc="lower left")
+plt.grid(True, linestyle="--", alpha=0.5)
+plt.tight_layout()
+pr_path = os.path.join(OUT_DIR, "pr_curve.png")
+plt.savefig(pr_path, dpi=300)
+plt.close()

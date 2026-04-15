@@ -1,0 +1,2 @@
+region,quarter,actual,pred_prob,pred_label
+25,2,0.02,0.7745415593919772,1

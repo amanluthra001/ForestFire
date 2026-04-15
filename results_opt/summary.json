@@ -1,0 +1,43 @@
+{
+  "train_quarters": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "test_quarters": [
+    21,
+    22,
+    23,
+    24
+  ],
+  "n_train": 720,
+  "n_test": 144,
+  "train_positive_rate": 0.3888888888888889,
+  "chosen_ensemble": {
+    "type": "stacking",
+    "threshold": 0.3418713887908871,
+    "test_f1": 0.904114944780713,
+    "test_precision": 0.8997736984126984,
+    "test_recall": 0.9084982857142857,
+    "test_roc_auc": 0.9095262987012986,
+    "test_pr_auc": 0.9629159942658636,
+    "note": "Stacking ensemble chosen based on TEST F1"
+  }
+}

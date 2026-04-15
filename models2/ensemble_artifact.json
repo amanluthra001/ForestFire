@@ -1,0 +1,26 @@
+{
+  "type": "stacking",
+  "model_names": [
+    "rf",
+    "xgb",
+    "cat",
+    "et"
+  ],
+  "features": [
+    "precipitation",
+    "temperature",
+    "relative_humidity",
+    "wind_speed",
+    "wind_x",
+    "wind_y",
+    "temp_wind",
+    "hum_temp_ratio",
+    "prev_burn",
+    "prev_fire",
+    "roll2_sum",
+    "roll4_sum"
+  ],
+  "threshold": 0.3418713887908871,
+  "meta_model_path": "C:\\Users\\AMAN LUTHRA\\OneDrive\\Desktop\\Forest Fire Alert System\\AMAN-FORESTFIRE\\models2\\meta_clf_logreg.pkl",
+  "meta_scaler_path": "C:\\Users\\AMAN LUTHRA\\OneDrive\\Desktop\\Forest Fire Alert System\\AMAN-FORESTFIRE\\models2\\meta_scaler.pkl"
+}

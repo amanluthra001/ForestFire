@@ -1,0 +1,12 @@
+,Network ID,Network Name,Native ID,Station ID,Station Name,History ID,Province,Longitude,Latitude,Elevation (m),Record Start,Record End,Obs Freq,Variables
+156,12,FLNRO-WMB,351,1896,ZZ SIMARD (NEC),2299,BC,-118.6467,50.6117,1768.0,1990-07-25,2000-11-01,Hourly,Precipitation Amount|Precipitation Climatology|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
+158,12,FLNRO-WMB,354,1899,ZZ YARD CREEK,2302,BC,-118.7,50.7,13.0,1979-06-04,2000-10-01,Daily,Precipitation Amount|Precipitation Climatology|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
+159,12,FLNRO-WMB,357,1902,ZZ KINGFISHER CK (NEC),2305,BC,-118.7583,50.6983,640.0,1990-07-09,2000-11-01,Hourly,Precipitation Amount|Precipitation Climatology|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
+336,17,ARDA,116122,5605,ASHTON 4900,7287,BC,-118.900833333333,50.6116666666667,1513.0,1971-04-05,1971-07-30,Daily,Precipitation (Cumulative)|Temperature (Max.)|Temperature (Min.)
+337,17,ARDA,116123,5606,KINGFISHER,7288,BC,-118.870833333333,50.5891666666667,393.0,1971-05-30,1972-08-31,Irregular,Precipitation (Cumulative)|Surface Snow Depth (Point)
+338,17,ARDA,116124,5607,HUPEL,7289,BC,-118.766666666667,50.6175,497.0,1971-05-30,1972-09-29,Irregular,Precipitation (Cumulative)|Surface Snow Depth (Point)
+339,17,ARDA,116125,5608,ELBOW,7290,BC,-118.756666666667,50.685,578.0,1971-05-30,1972-09-29,Irregular,Precipitation (Cumulative)|Surface Snow Depth (Point)
+340,17,ARDA,116126,5609,NOISY,7291,BC,-118.703333333333,50.7383333333333,724.0,1971-05-30,1972-09-29,Irregular,Precipitation (Cumulative)|Surface Snow Depth (Point)
+483,12,FLNRO-WMB,1174,10994,ZZ SLEEPY HOLLOW TEMP,13160,BC,-118.7758333,50.68278333,751.0,2014-06-06,2018-10-16,Unspecified,Precipitation Amount|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
+490,12,FLNRO-WMB,1213,11414,ZZ HUPEL TS,13475,BC,-118.77945,50.63445,912.0,2014-10-31,2015-10-07,Unspecified,Precipitation Amount|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
+495,12,FLNRO-WMB,1255,12020,ZZ ICE BOX TS,14077,BC,-118.6408333,50.69195,756.0,2016-06-03,2016-10-12,Unspecified,Precipitation Amount|Relative Humidity (Mean)|Temperature (Point)|Wind Direction (Mean)|Wind Speed (Mean)
